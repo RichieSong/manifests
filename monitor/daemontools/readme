@@ -1,0 +1,4 @@
+#http://linbo.github.io/2013/02/24/daemontools
+# http://cr.yp.to/daemontools/start.html
+
+wget http://cr.yp.to/daemontools/daemontools-0.76.tar.gz

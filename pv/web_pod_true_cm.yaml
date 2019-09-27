@@ -1,0 +1,30 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: web-true-cm-pod
+  namespace: default
+  labels:
+    role: frontend
+spec:
+  containers:
+  - name: web-true-cm-pod
+    image: nginx:1.14
+    ports:
+      - name: web
+        containerPort: 80
+    volumeMounts:
+        - name: nfs
+          mountPath: "/usr/share/nginx/html"
+        - name: nginxconf
+          mountPath: "/etc/nginx/config.d"
+          readOnly: true
+  volumes:
+  - name: nfs
+    persistentVolumeClaim:
+      claimName: nfs-true
+  - name: nginxconf
+    configMap:
+      name: web-cm
+
+
+

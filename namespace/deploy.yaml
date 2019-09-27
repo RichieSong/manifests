@@ -1,0 +1,22 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: sm-nginx
+  namespace: songming
+spec:
+   replicas: 1
+   selector:
+     matchLabels:
+        app: sm-nginx
+   template:
+      metadata:
+         labels:
+            app: sm-nginx
+      spec:
+        containers:
+         - name: nginx-deploy
+           image: nginx:1.14
+           ports:
+             - name: http
+               containerPort: 80
+            

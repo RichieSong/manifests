@@ -1,0 +1,25 @@
+apiVersion: apps/v1
+kind: ReplicaSet
+metadata:
+  name: ourapp
+  namespace: default
+spec:
+  replicas: 2
+  selector:
+     matchLabels:
+        app: ooapp
+        release: canary
+  template:
+        metadata:
+          name: myapp-pod
+          labels:
+             app: ooapp
+             release: canary
+             environment: qa
+        spec:
+           containers:
+             - name: outapp-container
+               image: nginx:1.14
+               ports:
+                 - name: http
+                   containerPort: 80

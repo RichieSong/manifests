@@ -1,0 +1,12 @@
+apiVersion: v1
+kind: PersistentVolumeClaim
+metadata:
+  name: nfs-local
+spec:
+  accessModes:
+    - ReadWriteMany
+  storageClassName: manual1
+  resources:
+    requests:
+      storage: 100Mi
+

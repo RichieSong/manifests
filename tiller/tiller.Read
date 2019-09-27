@@ -1,0 +1,1 @@
+ helm init --service-account tiller --upgrade --tiller-image=registry.cn-hangzhou.aliyuncs.com/google_containers/tiller:v2.14.3 --skip-refresh
